@@ -1,0 +1,5 @@
+Electricity Bill Calculation
+----------------------------
+Units Consumed : 150
+Rate per Unit  : Rs 5.0
+Total Bill     : Rs 750.0
