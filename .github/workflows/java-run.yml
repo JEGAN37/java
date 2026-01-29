@@ -1,0 +1,34 @@
+name: Java Bill CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-bill:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile Java
+        run: javac bill/ElectricityBill.java
+
+      - name: Run Java
+        run: java bill.ElectricityBill > output.txt
+
+      - name: Commit and push output
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output.txt
+          git commit -m "CI: auto run electricity bill" || echo "No changes"
+          git push
