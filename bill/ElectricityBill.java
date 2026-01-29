@@ -4,8 +4,8 @@ public class ElectricityBill {
     public static void main(String[] args) {
 
         // Sample input
-        int unitsConsumed = 100; // units in kWh
-        double ratePerUnit = 5.0; // Rs per unit
+        int unitsConsumed = 200; // units in kWh
+        double ratePerUnit = 8.0; // Rs per unit
 
         double totalBill = calculateBill(unitsConsumed, ratePerUnit);
 
